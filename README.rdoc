@@ -1,0 +1,8 @@
+= SFL Role Members Batch Copy
+== Savoir-faire Linux
+
+Copy in batch members of a role to another role.
+
+Authors : David Côté-Tremblay
+
+https://savoirfairelinux.com/
