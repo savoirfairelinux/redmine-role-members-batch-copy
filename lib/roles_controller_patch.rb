@@ -23,6 +23,10 @@ module RolesControllerPatch
                 if MemberRole.where(scheme).empty? then
                     MemberRole.new(scheme).save
                 end
+                if request.POST['copy']['remove_from_source'].to_i == 1 then
+                    source_member_role = MemberRole.where(:member_id => member.id, :role_id => source_role.id).take
+                    source_member_role.delete
+                end
             end
 
             flash[:notice] = l(:members_successfully_copied)

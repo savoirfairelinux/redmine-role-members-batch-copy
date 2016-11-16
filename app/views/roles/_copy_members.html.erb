@@ -15,6 +15,11 @@
         </p>
 
         <p>
+            <label for="copy_remove_from_source"><%= raw l(:move_instead_of_copy) %><span class="required"> *</span></label>
+            <%= check_box("copy", "remove_from_source") %>
+        </p>
+
+        <p>
             <label for="copy_legitimate"><%= raw l(:check_this_box_to_validate) %><span class="required"> *</span></label>
             <%= check_box("copy", "legitimate") %>
         </p>
