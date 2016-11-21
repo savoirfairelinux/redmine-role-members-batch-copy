@@ -2,13 +2,7 @@ require 'redmine'
 
 require 'roles_controller_patch'
 
-if Rails::VERSION::MAJOR < 3
-    require 'dispatcher'
-    object_to_prepare = Dispatcher
-else
-    object_to_prepare = Rails.configuration
-end
-
+object_to_prepare = Rails.configuration
 Redmine::Plugin.register :sfl_role_members_batch_copy do
 
     name 'SFL Role Members Batch Copy'
