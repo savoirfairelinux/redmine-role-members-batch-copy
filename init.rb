@@ -1,6 +1,5 @@
 require 'redmine'
-
-require 'roles_controller_patch'
+require 'copy_roles_controller_patch'
 
 object_to_prepare = Rails.configuration
 Redmine::Plugin.register :sfl_role_members_batch_copy do

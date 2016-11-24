@@ -1,0 +1,82 @@
+<%= title [l(:label_role_plural), roles_path], @role.name, l(@remove_from_source ? :label_move_to : :label_copy_to), @target_role.name %>
+<hr/>
+
+<% @overview.each do |project, members| %>
+
+<div class="autoscroll confirmation-role-copy">
+    <h2><%= project.name %></h2>
+    <table class="list">
+        <thead>
+            <tr>
+                <th><%= l(:field_user) %></th>
+                <th class="roles"><%= l(:roles_before) %></th>
+                <th class="roles"><%= l(:roles_after) %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% i = 0 %>
+            <% members.each do |member_role| next unless member_role.member.user %>
+            <tr class="<%= i % 2 == 0 ? 'odd' : 'even' %> project root parent ">
+                <% selection = member_role.member.roles.pluck(:name).sort_by(&:downcase) %>
+                <td class="name"><%= member_role.member.user.name %></td>
+                <td class="roles">
+                    <% if @remove_from_source %>
+                        <%= sanitize(selection.uniq.map{|x| x == @role.name ? '<span class="rm">'+x+'</span>' : x}.join(', '), tags: %w(span), attributes: %w(class)) %>
+                    <% else %>
+                        <%= selection.uniq.join(', ') %>
+                    <% end %>
+                </td>
+                <td class="roles">
+                    <% if @remove_from_source %>
+                        <%= sanitize((selection.push(@target_role.name) - [@role.name]).uniq.map{|x| x == @target_role.name ? '<span class="add">'+x+'</span>' : x}.join(', '), tags: %w(span), attributes: %w(class)) %>
+                    <% else %>
+                        <%= sanitize(selection.push(@target_role.name).uniq.map{|x| x == @target_role.name ? '<span class="add">'+x+'</span>' : x}.join(', '), tags: %w(span), attributes: %w(class)) %>
+                    <% end %>
+                </td>
+            </tr>
+            <% i += 1 %>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<br/>
+<% end %>
+
+<div class="box tabular" id="members_copy">
+    <%= form_tag({:action => 'do_copy_members', from: @role.id}, :method => 'post') do %>
+    <input type="hidden" name="copy[role_id]" value="<%= @target_role.id %>" />
+    <input type="hidden" name="copy[remove_from_source]" value="<%= request.POST['copy']['remove_from_source'] %>" />
+    <p>
+        <i><%= l(:this_option_is_irreversible) %></i>
+    </p>
+    <p>
+        <label for="copy_legitimate"><%= raw l(:check_this_box_to_validate) %><span class="required"> *</span></label>
+        <%= check_box("copy", "legitimate") %>
+    </p>
+    <%= submit_tag l(@remove_from_source ? :launch_move : :launch_copy) %>
+    <% end %>
+</div>
+
+<style>
+.confirmation-role-copy td.name {
+    width: 22%;
+}
+.confirmation-role-copy th, .confirmation-role-copy td {
+    text-align:left!important;
+}
+.confirmation-role-copy .roles {
+    width: 39%;
+}
+.confirmation-role-copy .rm {
+    background-color:lightpink;
+    color:black;
+}
+.confirmation-role-copy .add {
+    background-color:lightgreen;
+    color:black;
+}
+#members_copy label {
+    width:auto!important;
+    margin-right: 9px;
+}
+</style>

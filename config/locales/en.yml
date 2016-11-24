@@ -2,8 +2,14 @@ en:
   copy_members_to_another_role: Copy members of this role to another role
   target_role_where_to_copy_members: Target role where to copy
   launch_copy: Launch copy
+  launch_move: Launch move
   this_option_is_irreversible: This option is irreversible, be careful.
   members_successfully_copied: All members of this role successfully copied to target role.
   check_this_box_to_validate: Validate that this operation is legitimate
   security_validation_box_not_checked: The security validation box was not checked, please retry if needed.
-  move_instead_of_copy: Move issues instead of copy (remove from source role once copied)
+  move_instead_of_copy: Move issues instead of copy
+  next_step: Next step
+  roles_before: Roles before
+  roles_after: Roles after
+  label_move_to: Move to
+  label_copy_to: Copy to

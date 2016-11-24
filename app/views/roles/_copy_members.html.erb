@@ -1,13 +1,9 @@
-<br/><br/><br/>
+<br/><br/>
 <h3><%= raw l(:copy_members_to_another_role) %></h3>
 
-<%= form_tag({:action => 'copy_members', from: @role.id}, :method => 'post') do %>
+<%= form_tag({:action => 'validate_copy_members', from: @role.id}, :method => 'post') do %>
 
     <div class="box tabular">
-
-        <p>
-            <i><%= l(:this_option_is_irreversible) %></i>
-        </p>
 
         <p>
             <label for="copy_role_id"><%= raw l(:target_role_where_to_copy_members) %><span class="required"> *</span></label>
@@ -19,13 +15,8 @@
             <%= check_box("copy", "remove_from_source") %>
         </p>
 
-        <p>
-            <label for="copy_legitimate"><%= raw l(:check_this_box_to_validate) %><span class="required"> *</span></label>
-            <%= check_box("copy", "legitimate") %>
-        </p>
-
     </div>
 
-    <%= submit_tag l(:launch_copy) %>
+    <%= submit_tag l(:next_step) %>
 
 <% end %>
