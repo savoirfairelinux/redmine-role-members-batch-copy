@@ -13,3 +13,7 @@ en:
   roles_after: Roles after
   label_move_to: Move to
   label_copy_to: Copy to
+  no_members_to_migrate: No members to migrate
+  members: members
+  projects: projects
+  migrating: migrating

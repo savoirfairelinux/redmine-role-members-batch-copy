@@ -1,10 +1,12 @@
 <%= title [l(:label_role_plural), roles_path], @role.name, l(@remove_from_source ? :label_move_to : :label_copy_to), @target_role.name %>
 <hr/>
 
+<% if @overview.count > 0 %>
+
 <% @overview.each do |project, members| %>
 
 <div class="autoscroll confirmation-role-copy">
-    <h2><%= project.name %></h2>
+    <h2><%= project.name %> (<%= l(:migrating)+' '+(members.count.to_s)+' '+l(:members) %>)</h2>
     <table class="list">
         <thead>
             <tr>
@@ -80,3 +82,6 @@
     margin-right: 9px;
 }
 </style>
+<% else %>
+    <p><%= l(:no_members_to_migrate) %></p>
+<% end %>
