@@ -12,7 +12,7 @@ module CopyRolesControllerPatch
             @role = Role.find(params[:from])
             @target_role = Role.find(request.POST['copy']['role_id'])
             @remove_from_source = request.POST['copy']['remove_from_source'].to_i == 1
-            @overview = MemberRole.joins(:member).where(:role => @role).group('members.user_id', :id).group_by{ |o| o.member.project }
+            @overview = MemberRole.joins(:member).where(:role => @role).group(:id).group_by{ |o| o.member.project }
         end
 
         def do_copy_members

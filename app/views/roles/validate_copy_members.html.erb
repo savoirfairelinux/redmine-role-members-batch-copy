@@ -6,7 +6,17 @@
 <% @overview.each do |project, members| %>
 
 <div class="autoscroll confirmation-role-copy">
-    <h2><%= project.name %> (<%= l(:migrating)+' '+(members.count.to_s)+' '+l(:members) %>)</h2>
+    <%
+    # quick fix, forgive me :(
+    count = 0
+    dones = []
+    members.each do |member_role|
+        next if member_role.member.user.nil? or dones.include? member_role.member.id
+        dones << member_role.member.id
+        count += 1
+    end
+    %>
+    <h2><%= project.name %> (<%= l(:migrating)+' '+(count.to_s)+' '+l(:members) %>)</h2>
     <table class="list">
         <thead>
             <tr>
@@ -16,10 +26,16 @@
             </tr>
         </thead>
         <tbody>
-            <% i = 0 %>
-            <% members.each do |member_role| next unless member_role.member.user %>
+            <%
+            i = 0
+            dones = []
+            %>
+            <% members.each do |member_role| next if member_role.member.user.nil? or dones.include? member_role.member.id %>
             <tr class="<%= i % 2 == 0 ? 'odd' : 'even' %> project root parent ">
-                <% selection = member_role.member.roles.pluck(:name).sort_by(&:downcase) %>
+                <%
+                dones << member_role.member.id
+                selection = member_role.member.roles.pluck(:name).sort_by(&:downcase)
+                %>
                 <td class="name"><%= member_role.member.user.name %></td>
                 <td class="roles">
                     <% if @remove_from_source %>
