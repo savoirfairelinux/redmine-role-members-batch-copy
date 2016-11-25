@@ -1,4 +1,3 @@
-# coding: utf-8
 #
 #    Copyright (C) 2014 Savoir-faire Linux Inc. (<www.savoirfairelinux.com>).
 #
@@ -15,18 +14,16 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#
 require 'redmine'
 require 'copy_roles_controller_patch'
 
-object_to_prepare = Rails.configuration
-Redmine::Plugin.register :sfl_role_members_batch_copy do
+Redmine::Plugin.register :redmine_role_members_batch_copy do
 
-    name 'SFL Role Members Batch Copy'
-    author 'David Côté-Tremblay'
-    description 'Copy in batch members of a role to another role.'
-    version '0.0.1'
-    url 'https://gitlab.savoirfairelinux.com/redmine/SFL-Role-Members-Batch-Copy'
-    author_url 'http://savoirfairelinux.com'
+    name 'Redmine Role Members Batch Copy'
+    author 'Savoir-faire Linux'
+    description 'Copy in batch members from a role to another role.'
+    version '0.1.0'
+    url 'https://github.com/savoirfairelinux/redmine-role-members-batch-copy'
+    author_url 'https://www.savoirfairelinux.com/'
 
 end

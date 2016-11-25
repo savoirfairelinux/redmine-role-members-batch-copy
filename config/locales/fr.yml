@@ -1,0 +1,19 @@
+en:
+  copy_members_to_another_role: Copier les membres de ce rôle vers un autre role
+  target_role_where_to_copy_members: Rôle cible où copier
+  launch_copy: Démarrer la copie
+  launch_move: Démarrer le déplacement
+  this_option_is_irreversible: Cette action est irréversible, soyez prudent.
+  members_successfully_copied: Tous les membres de ce rôle ont correctement étés migrés vers le role cible.
+  check_this_box_to_validate: Validez que cette opération est bien légitime.
+  security_validation_box_not_checked: La case à cocher de sécurité n'était pas cochée, veuillez réessayer si nécessaire.
+  move_instead_of_copy: Déplacer les membres plutôt que copier
+  next_step: Étape suivante
+  roles_before: Rôles avant
+  roles_after: Rôles après
+  label_move_to: Déplacer vers
+  label_copy_to: Copier vers
+  no_members_to_migrate: Pas de membre à migrer
+  members: membres
+  projects: projets
+  migrating: migration de

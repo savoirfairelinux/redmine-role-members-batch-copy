@@ -7,7 +7,7 @@ en:
   members_successfully_copied: All members of this role successfully copied to target role.
   check_this_box_to_validate: Validate that this operation is legitimate
   security_validation_box_not_checked: The security validation box was not checked, please retry if needed.
-  move_instead_of_copy: Move issues instead of copy
+  move_instead_of_copy: Move members instead of copy
   next_step: Next step
   roles_before: Roles before
   roles_after: Roles after
