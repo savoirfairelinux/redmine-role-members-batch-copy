@@ -14,6 +14,8 @@ en:
   label_move_to: Déplacer vers
   label_copy_to: Copier vers
   no_members_to_migrate: Pas de membre à migrer
-  members: membres
+  members:
+   one:   membre
+   other: membres
   projects: projets
   migrating: migration de
