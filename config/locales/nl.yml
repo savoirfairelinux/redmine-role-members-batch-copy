@@ -1,0 +1,21 @@
+nl:
+  copy_members_to_another_role: Leden met deze rol naar een andere rol kopiëren
+  target_role_where_to_copy_members: Selecteer rol om leden naartoe te kopiëren
+  launch_copy: Leden kopiëren
+  launch_move: Leden verhuizen
+  this_option_is_irreversible: Deze actie is onomkeerbaar, wees dus voorzichtig.
+  members_successfully_copied: Alle leden van deze rol zijn succesvol gekopieerd naar de geselecteerde rol.
+  check_this_box_to_validate: Controleer of deze actie wel degelijk uitgevoerd mag worden
+  security_validation_box_not_checked: Het validatiekeuzevakje is niet geselecteerd. Probeer opnieuw indien nodig.
+  move_instead_of_copy: Leden verhuizen in plaats van kopiëren
+  next_step: Volgende stap
+  roles_before: Rollen voor
+  roles_after: Rollen na
+  label_move_to: Verhuizen naar
+  label_copy_to: Kopiëren naar
+  no_members_to_migrate: Geen leden te migreren
+  members:
+   one:   lid
+   other: leden
+  projects: projecten
+  migrating: migratie van
