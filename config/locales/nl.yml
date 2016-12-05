@@ -14,6 +14,8 @@ nl:
   label_move_to: Verhuizen naar
   label_copy_to: Kopiëren naar
   no_members_to_migrate: Geen leden te migreren
-  members: leden
+  members:
+   one:   lid
+   other: leden
   projects: projecten
   migrating: migratie van
