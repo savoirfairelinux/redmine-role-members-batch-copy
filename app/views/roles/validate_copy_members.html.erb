@@ -34,7 +34,7 @@
         count += 1
     end
     %>
-    <h2><%= project.name %> (<%= l(:migrating)+' '+(count.to_s)+' '+l(:members) %>)</h2>
+    <h2><%= project.name %> (<%= l(:migrating)+' '+(count.to_s)+' '+l(:members, :count => count) %>)</h2>
     <table class="list">
         <thead>
             <tr>
